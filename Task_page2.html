@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Information</title>
+  <style>
+    body {
+      background-color: lightblue;
+    }
+
+    .container {
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      width: 400px;
+    }
+
+    .input-label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .print-button {
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Student Information</h2>
+    <form id="studentForm">
+      <label class="input-label">HSC Institution name</label>
+      <input class="input-field" type="text" id="hscInstitutionName" required>
+
+      <label class="input-label">HSC Board</label>
+      <select class="input-field" id="hscBoard" required>
+        <option value="CBSE">CBSE</option>
+        <option value="ICSE">ICSE</option>
+        <option value="State Board">State Board</option>
+      </select>
+
+      <label class="input-label">Score in HSC (in percentage)</label>
+      <input class="input-field" type="number" id="hscScore" required>
+
+      <label class="input-label">SSC Institution name</label>
+      <input class="input-field" type="text" id="sscInstitutionName" required>
+
+      <label class="input-label">SSC Board</label>
+      <select class="input-field" id="sscBoard" required>
+        <option value="CBSE">CBSE</option>
+        <option value="ICSE">ICSE</option>
+        <option value="State Board">State Board</option>
+      </select>
+
+      <label class="input-label">Score in SSC (in percentage)</label>
+      <input class="input-field" type="number" id="sscScore" required>
+
+      <label class="input-label">Currently pursuing</label>
+      <input class="input-field" type="text" id="currentCourse" required>
+
+      <label class="input-label">Current educational institution name</label>
+      <input class="input-field" type="text" id="currentInstitution" required>
+
+      <label class="input-label">Overall percentage</label>
+      <input class="input-field" type="number" id="overallPercentage" required>
+
+      <label class="input-label">Current backlogs (if any)</label>
+      <input class="input-field" type="number" id="currentBacklogs" required>
+
+      <button class="print-button" type="button" onclick="printInputs()">Print Inputs</button>
+      <div class="print-btn">
+        <a href="TASK.html">Previous Page</a>
+        <a href="Task_page3.html">Next Page</a>
+      </div> 
+
+    </form>
+  </div>
+
+  <script>
+    function printInputs() {
+      var hscInstitutionName = document.getElementById("hscInstitutionName").value;
+      var hscBoard = document.getElementById("hscBoard").value;
+      var hscScore = document.getElementById("hscScore").value;
+      var sscInstitutionName = document.getElementById("sscInstitutionName").value;
+      var sscBoard = document.getElementById("sscBoard").value;
+      var sscScore = document.getElementById("sscScore").value;
+      var currentCourse = document.getElementById("currentCourse").value;
+      var currentInstitution = document.getElementById("currentInstitution").value;
+      var overallPercentage = document.getElementById("overallPercentage").value;
+      var currentBacklogs = document.getElementById("currentBacklogs").value;
+
+      var output = "HSC Institution name: " + hscInstitutionName + "\n" +
+                   "HSC Board: " + hscBoard + "\n" +
+                   "Score in HSC: " + hscScore + "%\n" +
+                   "SSC Institution name: " + sscInstitutionName + "\n" +
+                   "SSC Board: " + sscBoard + "\n" +
+                   "Score in SSC: " + sscScore + "%\n" +
+                   "Currently pursuing: " + currentCourse + "\n" +
+                   "Current educational institution name: " + currentInstitution + "\n" +
+                   "Overall percentage: " + overallPercentage + "%\n" +
+                   "Current backlogs (if any): " + currentBacklogs;
+
+      alert(output);
+    }
+    <div class="print-btn">
+        <a href="TASK.html">Go to Next Page</a>
+    </div> 
+  </script>
+</body>
+</html>

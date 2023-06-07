@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Information and Document Upload</title>
+  <style>
+    body {
+      background-color: lightblue;
+    }
+
+    .container {
+      margin: 20px;
+      padding: 20px;
+      background-color: white;
+      width: 400px;
+    }
+
+    .input-label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    .file-field {
+      margin-bottom: 10px;
+    }
+
+    .print-button {
+      padding: 10px 20px;
+      background-color: blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Student Information and Document Upload</h2>
+    <form id="studentForm">
+      <!-- Previous Page Inputs -->
+      <h3>Previous Page Inputs:</h3>
+      <div id="previousPageInputs"></div>
+
+      <h2>Document Upload:</h2>
+
+      <label class="input-label">Recent passport size photograph (image size less than 4MB)</label>
+      <input class="file-field" type="file" id="passportPhoto" accept="image/*" required>
+
+      <label class="input-label">HSC mark sheet (image, PDF, or docs size less than 4MB)</label>
+      <input class="file-field" type="file" id="hscMarkSheet" accept="image/*, .pdf, .doc, .docx" required>
+
+      <label class="input-label">SSC mark sheet (image, PDF, or docs size less than 4MB)</label>
+      <input class="file-field" type="file" id="sscMarkSheet" accept="image/*, .pdf, .doc, .docx" required>
+
+      <label class="input-label">All semesters mark sheet in a single PDF or docs (file size less than 10MB)</label>
+      <input class="file-field" type="file" id="allSemestersMarkSheet" accept=".pdf, .doc, .docx" required>
+
+      <button class="print-button" type="button" onclick="printInputs()">Print Inputs</button>
+    </form>
+  </div>
+
+  <script>
+    function printInputs() {
+      // Get previous page inputs
+      var previousPageInputs = document.getElementById("previousPageInputs").innerHTML;
+
+      // Get current page inputs
+      var hscInstitutionName = document.getElementById("hscInstitutionName").value;
+      var hscBoard = document.getElementById("hscBoard").value;
+      var hscScore = document.getElementById("hscScore").value;
+      var sscInstitutionName = document.getElementById("sscInstitutionName").value;
+      var sscBoard = document.getElementById("sscBoard").value;
+      var sscScore = document.getElementById("sscScore").value;
+      var currentCourse = document.getElementById("currentCourse").value;
+      var currentInstitution = document.getElementById("currentInstitution").value;
+      var overallPercentage = document.getElementById("overallPercentage").value;
+      var currentBacklogs = document.getElementById("currentBacklogs").value;
+
+      // Construct output
+      var output = "Previous Page Inputs:\n" + previousPageInputs +
+                   "\nCurrent Page Inputs:\n" +
+                   "HSC Institution name: " + hscInstitutionName + "\n" +
+                   "HSC Board: " + hscBoard + "\n" +
+                   "Score in HSC: " + hscScore + "%\n" +
+                   "SSC Institution name: " + sscInstitutionName + "\n" +
+                   "SSC Board: " + sscBoard + "\n" +
+                   "Score in SSC: " + sscScore + "%\n" +
+                   "Currently pursuing: " + currentCourse + "\n" +
+                   "Current educational institution name: " + currentInstitution + "\n" +
+                   "Overall percentage: " + overallPercentage + "%\n" +
+                   "Current backlogs (if any): " + currentBacklogs;
+
+      alert(output);
+    }
+  </script>
+</body>
+</html>
